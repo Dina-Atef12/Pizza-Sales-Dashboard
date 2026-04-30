@@ -41,3 +41,31 @@ Dynamic titles — update based on active slicer selections
 📉 September & December dip 8–9% below average — seasonal promo opportunity
 📐 Large size alone generates 45.9% of total revenue
 
+
+🛠️ Built With
+Power BI Desktop   DAX   Power Query   Bookmarks   Drill-through   Conditional Formatting
+
+📐 DAX Highlights
+dax-- Average Order Value
+Avg Order Value = DIVIDE([Total Revenue], DISTINCTCOUNT(pizza_sales[order_id]))
+
+-- Revenue formatted as $43.4K
+Revenue Label =
+"$" & FORMAT([Total Revenue] / 1000, "#.#") & "K"
+
+-- Auto-detect top seller
+Top Seller =
+IF(RANKX(ALL(pizza_sales[pizza_name]), [Total Revenue],, DESC, Dense) = 1,
+   "Top seller", "")
+
+   📂 Files
+├── PizzaSalesDashboard.pbix     ← Power BI report
+├── pizza_sales.xlsx             ← Source dataset
+├── FornoAnalytics_Theme.json    ← Custom dark theme
+└── screenshots/
+    ├── overview.png
+    ├── menu_board.png
+    ├── timeline.png
+    └── simulator.png
+
+    
