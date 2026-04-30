@@ -1,71 +1,140 @@
-# Pizza-Sales-Dashboard
-Designed to help restaurant managers make data-driven decisions by analyzing 48,620 pizza sales transactions, uncovering revenue trends, peak ordering patterns, and product performance insights.
+# 🍕 Pizza Sales Dashboard — Power BI
 
+<p align="center">
+  <img src="https://img.shields.io/badge/Power%20BI-Data%20Analytics-F2C811?style=for-the-badge&logo=powerbi&logoColor=black"/>
+  <img src="https://img.shields.io/badge/DAX-Advanced-0078D4?style=for-the-badge&logo=microsoft&logoColor=white"/>
+  <img src="https://img.shields.io/badge/Power%20Query-ETL-512BD4?style=for-the-badge"/>
+  <img src="https://img.shields.io/badge/Status-Completed-brightgreen?style=for-the-badge"/>
+</p>
 
-## 🚀 Quick Highlights
+---
 
-- 💰 Revenue: $817K across 21K orders  
-- 📈 Peak sales on Fridays (+27% vs Sunday)  
-- 🍕 Top product: Thai Chicken Pizza ($43K)  
-- 📊 Built with Power BI + DAX  
-- 💡 Includes revenue simulator for business decisions  
+## 📊 Overview
 
-📈 Key Metrics
+A **business intelligence dashboard** built using Power BI to analyze **48,620 pizza sales transactions**, uncovering revenue patterns, customer behavior, and product performance insights.
 
-Metric              Value
+This project simulates real-world restaurant analytics to support **data-driven decision making**.
 
-Total Revenue           $817,860
+---
 
-Total Orders            21,350
+## 🚀 Key Highlights
 
-Avg Order Value         $38.31
+* 💰 **Total Revenue:** $817K across 21K orders
+* 🍕 **Top Product:** Thai Chicken Pizza ($43K)
+* 📈 **Best Day:** Friday (+27% vs Sunday)
+* ⏰ **Peak Hour:** 12–1 PM (~12.7K orders)
+* 📊 Built with **Power BI + Advanced DAX**
 
-Pizzas Sold             49,574
+---
 
-✨ Features
+## 📈 Business KPIs
 
-5-page dashboard with bookmark-based tab navigation
-KPI cards — Revenue, Orders, AOV, Pizzas Sold
-Revenue trend — monthly with anomaly annotations
-Pizza performance board — card grid, color-coded by category
-Peak hours analysis — hourly heatmap + day-of-week breakdown
-Revenue simulator — what-if sliders projecting up to +14.9% uplift
-Drill-through pages — click any pizza for a detailed breakdown
-Dynamic titles — update based on active slicer selections
+| Metric             | Value    |
+| ------------------ | -------- |
+| 💰 Total Revenue   | $817,860 |
+| 🧾 Total Orders    | 21,350   |
+| 📦 Pizzas Sold     | 49,574   |
+| 💵 Avg Order Value | $38.31   |
 
-💡 Top Insights
+---
 
-🏆 Thai Chicken is the #1 pizza at $43.4K — 3.7× the bottom performer
-📅 Friday drives 27% more orders than Sunday (7,723 vs 6,063)
-⏰ 12–1 PM is peak hour with ~12,700 orders — critical staffing window
-📉 September & December dip 8–9% below average — seasonal promo opportunity
-📐 Large size alone generates 45.9% of total revenue
+## 🧠 Key Insights
 
+* 🏆 Thai Chicken Pizza dominates sales with **$43.4K revenue**
+* 📅 Friday drives **+27% more orders** than Sunday
+* ⏰ Peak demand occurs during **lunch hours (12–1 PM)**
+* 📉 Seasonal dips in **September & December (-8% to -9%)**
+* 📐 Large size pizzas contribute **45.9% of total revenue**
 
-🛠️ Built With
-Power BI Desktop   DAX   Power Query   Bookmarks   Drill-through   Conditional Formatting
+---
 
-📐 DAX Highlights
-dax-- Average Order Value
-Avg Order Value = DIVIDE([Total Revenue], DISTINCTCOUNT(pizza_sales[order_id]))
+## ✨ Dashboard Features
 
--- Revenue formatted as $43.4K
+* 📊 Multi-page interactive dashboard (5 pages)
+* 🔘 Bookmark-based navigation system
+* 💰 KPI Cards (Revenue, Orders, AOV, Units Sold)
+* 📈 Revenue trend analysis with anomaly detection
+* 🍕 Product performance matrix (color-coded categories)
+* ⏰ Hourly + weekly heatmap analysis
+* 🎯 Revenue simulator (What-if analysis up to +14.9%)
+* 🔍 Drill-through product insights
+* 🧠 Dynamic titles based on slicer context
+
+---
+
+## 🛠️ Tech Stack
+
+<p align="center">
+
+<img src="https://img.shields.io/badge/Power%20BI-Desktop-F2C811?style=flat-square&logo=powerbi"/>
+<img src="https://img.shields.io/badge/DAX-Formulas-0078D4?style=flat-square"/>
+<img src="https://img.shields.io/badge/Power%20Query-ETL-512BD4?style=flat-square"/>
+<img src="https://img.shields.io/badge/Excel-Data%20Source-217346?style=flat-square&logo=microsoft-excel"/>
+
+</p>
+
+---
+
+## 📐 Sample DAX Measures
+
+```DAX
+-- Average Order Value
+Avg Order Value =
+DIVIDE([Total Revenue], DISTINCTCOUNT(pizza_sales[order_id]))
+
+-- Revenue Formatting
 Revenue Label =
 "$" & FORMAT([Total Revenue] / 1000, "#.#") & "K"
 
--- Auto-detect top seller
+-- Top Seller Flag
 Top Seller =
-IF(RANKX(ALL(pizza_sales[pizza_name]), [Total Revenue],, DESC, Dense) = 1,
-   "Top seller", "")
+IF(
+    RANKX(ALL(pizza_sales[pizza_name]), [Total Revenue],, DESC, Dense) = 1,
+    "Top Seller",
+    BLANK()
+)
+```
 
-   📂 Files
-├── PizzaSalesDashboard.pbix     ← Power BI report
-├── pizza_sales.xlsx             ← Source dataset
-├── FornoAnalytics_Theme.json    ← Custom dark theme
+---
+
+## 📂 Project Structure
+
+```
+Pizza-Sales-Dashboard/
+│
+├── PizzaSalesDashboard.pbix
+├── pizza_sales.xlsx
+├── FornoAnalytics_Theme.json
+│
 └── screenshots/
     ├── overview.png
     ├── menu_board.png
     ├── timeline.png
     └── simulator.png
+```
 
-    
+---
+
+## 📸 Dashboard Preview
+
+> Add screenshots here (recommended for GitHub engagement)
+
+---
+
+## 🎯 Business Value
+
+This dashboard helps restaurant managers to:
+
+* Optimize **staff scheduling**
+* Improve **menu profitability**
+* Identify **best-selling products**
+* Track **seasonal demand changes**
+* Simulate **revenue growth scenarios**
+
+---
+
+## 👩‍💻 Author
+
+**Dina Atef Ramadan Ali**
+📊 Data & BI Enthusiast | Power BI Developer
+
