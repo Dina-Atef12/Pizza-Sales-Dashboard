@@ -114,13 +114,6 @@ Pizza-Sales-Dashboard/
 ```
 
 ---
-
-## 📸 Dashboard Preview
-
-> Add screenshots here (recommended for GitHub engagement)
-
----
-
 ## 🎯 Business Value
 
 This dashboard helps restaurant managers to:
